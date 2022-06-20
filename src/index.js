@@ -15,5 +15,10 @@ const getfilms = (films) => {
 
         movielist.textContent = film.title
         movietitles.appendChild(movielist)
+
+        movielist.addEventListener('click', () => {
+            const imagePoster = document.getElementById('poster').src=film.poster
+            console.log(imagePoster)
+        })
     });
 }
