@@ -25,6 +25,9 @@ const getfilms = (films) => {
 
         const duration = document.querySelector("#runtime")
         duration.textContent = `${film.runtime} Minutes`
+
+        const description = document.querySelector("#film-info")
+        description.textContent = film.description
         })
     });
 }
