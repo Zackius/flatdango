@@ -17,8 +17,14 @@ const getfilms = (films) => {
         movietitles.appendChild(movielist)
 
         movielist.addEventListener('click', () => {
-            const imagePoster = document.getElementById('poster').src=film.poster
+        const imagePoster = document.getElementById('poster').src=film.poster
             console.log(imagePoster)
+
+        const title = document.querySelector("#title")
+        title.textContent = film.title
+
+        const duration = document.querySelector("#runtime")
+        duration.textContent = `${film.runtime} Minutes`
         })
     });
 }
