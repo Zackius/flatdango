@@ -28,6 +28,9 @@ const getfilms = (films) => {
 
         const description = document.querySelector("#film-info")
         description.textContent = film.description
+
+        const showtime = document.querySelector("#showtime")
+        showtime.textContent = film.showtime
         })
     });
 }
