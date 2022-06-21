@@ -41,15 +41,28 @@ const getfilms = (films) => {
       remainingTickets.textContent = availSeats;
 
       const buyTicket = document.querySelector("#buy-ticket");
-      buyTicket.addEventListener("click", () => {
-        if (availSeats > 0) {
-          const actualSeats = availSeats - 1;
-          remainingTickets.textContent = actualSeats;
-          alert("Thank you and Enjoy your Movie");
-        } else {
-          alert("Apologies, Tickets out of Stock");
-        }
-      });
+      buyTicket.addEventListener("click", ticketCalc);
     });
+  });
+};
+
+const ticketCalc = (btn) => {
+  let calc = document.querySelector(".extra-content");
+  let input = document.createElement("input");
+  let button = document.querySelector("#buy-ticket");
+  button.textContent = "Submit";
+  input.innerHTML = btn.inputs;
+  calc.appendChild(input);
+  let valu = input.value;
+  button.addEventListener("click", () => {
+    if (availSeats > valu) {
+      const remaining = availSeats - valu;
+      remainingTickets.textContent = remaining;
+    } else if (valu > availSeats) {
+      const negBal = valu - availSeats;
+      alert(`We do not have ${negBal} seats`);
+    } else {
+      alert("Sold Out");
+    }
   });
 };
