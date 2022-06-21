@@ -35,9 +35,21 @@ const getfilms = (films) => {
 
       const showtime = document.querySelector("#showtime");
       showtime.textContent = film.showtime;
+
       const remainingTickets = document.querySelector("#ticket-num");
       const availSeats = film.capacity - film.tickets_sold;
       remainingTickets.textContent = availSeats;
+
+      const buyTicket = document.querySelector("#buy-ticket");
+      buyTicket.addEventListener("click", () => {
+        if (availSeats > 0) {
+          const actualSeats = availSeats - 1;
+          remainingTickets.textContent = actualSeats;
+          alert("Thank you and Enjoy your Movie");
+        } else {
+          alert("Apologies, Tickets out of Stock");
+        }
+      });
     });
   });
 };
