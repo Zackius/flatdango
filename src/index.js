@@ -99,7 +99,7 @@ const getfilms = (films) => {
           console.log(remain);
           if (remain > 0) {
             remainingTickets.textContent = remain;
-            alert(`Thank you for purchasing ${remain} tickets`);
+            alert(`Thank you for purchasing ${getVal()} tickets`);
           } else {
             return "No Tickets";
           }
