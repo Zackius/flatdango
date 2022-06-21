@@ -45,16 +45,18 @@ const getfilms = (films) => {
         let calc = document.querySelector(".extra-content");
         let button = document.createElement("button");
         let input = document.createElement("input");
+        input.setAttribute("placeholder", "How many tickets");
+        input.setAttribute("onblur", "getVal()");
 
+        function getVal() {
+          let valu = input.value;
+        }
         button.textContent = "Submit";
         input.innerHTML = btn.inputs;
         calc.appendChild(input);
         calc.appendChild(button);
 
         button.addEventListener("click", () => {
-          function getVal() {
-            let valu = input.value;
-          }
           let remain = availSeats - getVal();
           console.log(remain);
           if (remain > 0) {
