@@ -36,33 +36,34 @@ const getfilms = (films) => {
       const showtime = document.querySelector("#showtime");
       showtime.textContent = film.showtime;
 
-      const remainingTickets = document.querySelector("#ticket-num");
-      const availSeats = film.capacity - film.tickets_sold;
+      let remainingTickets = document.querySelector("#ticket-num");
+      let availSeats = film.capacity - film.tickets_sold;
       remainingTickets.textContent = availSeats;
 
       const buyTicket = document.querySelector("#buy-ticket");
-      buyTicket.addEventListener("click", ticketCalc);
-    });
-  });
-};
+      buyTicket.addEventListener("click", (btn) => {
+        let calc = document.querySelector(".extra-content");
+        let button = document.createElement("button");
+        let input = document.createElement("input");
 
-const ticketCalc = (btn) => {
-  let calc = document.querySelector(".extra-content");
-  let input = document.createElement("input");
-  let button = document.querySelector("#buy-ticket");
-  button.textContent = "Submit";
-  input.innerHTML = btn.inputs;
-  calc.appendChild(input);
-  let valu = input.value;
-  button.addEventListener("click", () => {
-    if (availSeats > valu) {
-      const remaining = availSeats - valu;
-      remainingTickets.textContent = remaining;
-    } else if (valu > availSeats) {
-      const negBal = valu - availSeats;
-      alert(`We do not have ${negBal} seats`);
-    } else {
-      alert("Sold Out");
-    }
+        button.textContent = "Submit";
+        input.innerHTML = btn.inputs;
+        calc.appendChild(input);
+        calc.appendChild(button);
+
+        button.addEventListener("click", () => {
+          function getVal() {
+            let valu = input.value;
+          }
+          let remain = availSeats - getVal();
+          console.log(remain);
+          if (remain > 0) {
+            remainingTickets.textContent = remain;
+          } else {
+            return "No Tickets";
+          }
+        });
+      });
+    });
   });
 };
