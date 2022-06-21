@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoad", (e) => {
 
 function fetchMovies() {
   //const navbar = document.querySelector('#beer-list')
-  fetch("http://localhost:3000/films")
+  fetch("https://zackius.github.io/json-api-/db.json")
     .then((res) => res.json())
     .then((data) => {
       return getfilms(data);
@@ -83,7 +83,7 @@ const getfilms = (films) => {
         let calc = document.querySelector(".extra-content");
         let button = document.createElement("button");
         let input = document.createElement("input");
-        input.setAttribute("placeholder", "How many tickets");
+        input.setAttribute("placeholder", "How many tickets do you want?");
         input.setAttribute("onblur", "getVal()");
 
         function getVal() {
