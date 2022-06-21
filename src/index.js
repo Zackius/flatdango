@@ -49,7 +49,7 @@ const getfilms = (films) => {
         input.setAttribute("onblur", "getVal()");
 
         function getVal() {
-          let valu = input.value;
+          return (valu = input.value);
         }
         button.textContent = "Submit";
         input.innerHTML = btn.inputs;
@@ -61,6 +61,7 @@ const getfilms = (films) => {
           console.log(remain);
           if (remain > 0) {
             remainingTickets.textContent = remain;
+            alert(`Thank you for purchasing ${remain} tickets`);
           } else {
             return "No Tickets";
           }
