@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoad", (e) => {
 
 function fetchMovies() {
   //const navbar = document.querySelector('#beer-list')
-  fetch("https://zackius.github.io/json-api-/db.json")
+  fetch("  http://localhost:3000/films ")
     .then((res) => res.json())
     .then((data) => {
       return getfilms(data);
